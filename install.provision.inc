@@ -28,7 +28,7 @@ function drush_provision_civicrm_post_provision_install($url = null) {
     drush_log(dt("CiviCRM: CiviCRM language: %lang", array('%lang' => $lang)));
   }
 
-  _provision_civicrm_install_civicrm($db_user, $db_passwd, $db_host, $db_name, $lang);
+  _provision_civicrm_install_civicrm($db_user, $db_passwd, $db_host, $db_name, $db_port, $lang);
 
   // Deprecated by hosting_civicrm_cron
   // _provision_civicrm_create_civicron_user();
@@ -55,7 +55,7 @@ function drush_provision_civicrm_post_provision_install($url = null) {
  * Also removed the references to the tar file, since we assume that
  * the platform is already created with drush make.
  */
-function _provision_civicrm_install_civicrm($dbuser, $dbpass, $dbhost, $dbname, $lang) {
+function _provision_civicrm_install_civicrm($dbuser, $dbpass, $dbhost, $dbname, $db_port, $lang) {
   $crmpath    = _civicrm_get_crmpath();
   $drupalRoot = drush_get_context('DRUSH_DRUPAL_ROOT');
   $modPath    = "$drupalRoot/$crmpath";
