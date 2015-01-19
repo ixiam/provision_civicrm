@@ -419,6 +419,7 @@ function _provision_civicrm_regenerate_settings() {
   $db_passwd = drush_get_option('db_passwd', NULL, 'site');
   $db_host = drush_get_option('db_host', NULL, 'site');
   $db_name = drush_get_option('db_name', NULL, 'site');
+  $db_port = drush_get_option('db_port', 3306, 'site');
 
   // include civicrm installer helper file (otherwise PEAR DB.php will fail to include parts)
   // FIXME : we should test whether this is still necessary.
